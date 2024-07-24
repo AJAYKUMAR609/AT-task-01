@@ -130,12 +130,12 @@ wait = WebDriverWait(driver, 10)
 
 #ak
 
-# Log in with valid credentials (you can modify this part)
 username_input = wait.until(EC.visibility_of_element_located((By.NAME, "username")))
-username_input.send_keys("Admin")  # Replace with the actual username
+username_input.send_keys("Admin")
 
+# Enter the password
 password_input = wait.until(EC.visibility_of_element_located((By.NAME, "password")))
-password_input.send_keys("admin123")  # Replace with the actual password
+password_input.send_keys("admin123")
 
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")))
 login_button.click()
@@ -272,9 +272,11 @@ action_button=wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/d
 action_button.click()
 # Edit employee details
 
-# Add license expiry date
-license_expiry_date_input = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[2]/div[2]/div[2]/div/div[2]/div/div/input')))
-license_expiry_date_input.send_keys("2032-04-02")
+# Add blood group
+blood_type=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]')))
+blood_type.click()
+blood_type = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='A+']")))
+blood_type.click()
 
 
 # Save the employee details
@@ -330,7 +332,7 @@ login_button.click()
 # Navigate to the PIM module
 pim_module_link = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a/span")))
 pim_module_link.click()
-#
+
 # Locate the Employee List link and click it
 employee_list_link = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[2]')))
 employee_list_link.click()
