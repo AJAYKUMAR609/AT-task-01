@@ -23,6 +23,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Open the OrangeHRM login page
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+driver.maximize_window()
 
 # Set an explicit wait of 10 seconds
 wait = WebDriverWait(driver, 10)
@@ -74,6 +75,8 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Open the OrangeHRM login page
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+driver.maximize_window()
+
 
 # Set an explicit wait of 10 seconds
 wait = WebDriverWait(driver, 10)
@@ -124,12 +127,13 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Open the OrangeHRM login page
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+driver.maximize_window()
+
 
 # Set an explicit wait of 10 seconds
 wait = WebDriverWait(driver, 10)
 
-#ak
-
+#Enter the username
 username_input = wait.until(EC.visibility_of_element_located((By.NAME, "username")))
 username_input.send_keys("Admin")
 
@@ -137,6 +141,7 @@ username_input.send_keys("Admin")
 password_input = wait.until(EC.visibility_of_element_located((By.NAME, "password")))
 password_input.send_keys("admin123")
 
+#click on login button
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")))
 login_button.click()
 
@@ -195,7 +200,8 @@ gender_radio_button.click()
 # Save the employee details
 save_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')))
 save_button.click()
-#
+
+#add blood group
 blood_type=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]')))
 blood_type.click()
 blood_type = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='B+']")))
@@ -208,6 +214,7 @@ save_button.click()
 
 #close webpage
 driver.close()
+
 
 
 ##task-02 update employee details
@@ -233,12 +240,11 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Open the OrangeHRM login page
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+driver.maximize_window()
 
 # Set an explicit wait of 10 seconds
 wait = WebDriverWait(driver, 30)  # Increase the timeout to 30 seconds
 
-
-#ak
 
 # Log in with valid credentials
 username_input = wait.until(EC.visibility_of_element_located((By.NAME, "username")))
@@ -256,7 +262,6 @@ pim_module_link.click()
 
 
 # Step 3: Select an employee from the list
-WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "Employee List"))).click()
 
 Employee_name_input=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')))
 Employee_name_input.send_keys("Keerthi")
@@ -266,12 +271,10 @@ search_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]
 search_button.click()
 
 
-#//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[9]/div/button[2]
+#click on action
+action_button=wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[2]'))).click()
 
-action_button=wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/button[2]')))
-action_button.click()
 # Edit employee details
-
 # Add blood group
 blood_type=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]')))
 blood_type.click()
@@ -280,8 +283,8 @@ blood_type.click()
 
 
 # Save the employee details
-save_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')))
-save_button.click()
+save_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[2]/button'))).click()
+
 ##close webpage
 driver.close()
 
@@ -339,12 +342,12 @@ employee_list_link.click()
 
 # Step 4: Find the employee to delete
 Employee_name_input=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')))
-Employee_name_input.send_keys("vijay")
+Employee_name_input.send_keys("Keerthi")
 #
 search_button=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]')))
 search_button.click()
 #
-actions_button=wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[1]')))
+action_button=wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[2]')))
 actions_button.click()
 
 # Click the link/button that triggers the popup
