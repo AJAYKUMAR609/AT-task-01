@@ -198,7 +198,7 @@ gender_radio_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id=
 gender_radio_button.click()
 
 # Save the employee details
-save_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button')))
+save_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')))
 save_button.click()
 
 #add blood group
